@@ -1,0 +1,95 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": false,
+  "tailwind": {
+    "config": "",
+    "css": "src/app/globals.css",
+    "baseColor": "stone",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "iconLibrary": "lucide",
+  "components": [
+    {
+      "name": "Alert",
+      "path": "/components/alert"
+    },
+    {
+      "name": "Avatar",
+      "path": "/components/avatar"
+    },
+    {
+      "name": "Badge",
+      "path": "/components/badge"
+    },
+    {
+      "name": "Button",
+      "path": "/components/button"
+    },
+    {
+      "name": "Card",
+      "path": "/components/card"
+    },
+    {
+      "name": "Checkbox",
+      "path": "/components/checkbox"
+    },
+    {
+      "name": "Dropdown Menu",
+      "path": "/components/dropdown-menu"
+    },
+    {
+      "name": "Input",
+      "path": "/components/input"
+    },
+    {
+      "name": "Modal",
+      "path": "/components/modal"
+    },
+    {
+      "name": "Pagination",
+      "path": "/components/pagination"
+    },
+    {
+      "name": "Radio Group",
+      "path": "/components/radio-group"
+    },
+    {
+      "name": "Skeleton",
+      "path": "/components/skeleton"
+    },
+    {
+      "name": "Spinner",
+      "path": "/components/spinner"
+    },
+    {
+      "name": "Switch",
+      "path": "/components/switch"
+    },
+    {
+      "name": "Tabs",
+      "path": "/components/tabs"
+    },
+    {
+      "name": "Toast",
+      "path": "/components/toast"
+    },
+    {
+      "name": "Tooltip",
+      "path": "/components/tooltip"
+    },
+    {
+      "name": "Breadcrumb",
+      "path": "/components/breadcrumb"
+    }
+  ]
+}

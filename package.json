@@ -1,0 +1,41 @@
+{
+  "name": "frastra",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@heroicons/react": "^2.2.0",
+    "@mui/material": "^6.4.7",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.18.1",
+    "highlight.js": "^11.11.1",
+    "lucide-react": "^0.479.0",
+    "next": "15.2.1",
+    "prism-react-renderer": "^2.4.1",
+    "prismjs": "^1.30.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-element-to-jsx-string": "^17.0.1",
+    "refractor": "^5.0.0",
+    "shiki": "^3.6.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@storybook/addon-docs": "^8.6.4",
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.1",
+    "tailwindcss": "^4"
+  }
+}
