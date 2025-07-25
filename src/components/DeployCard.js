@@ -18,12 +18,12 @@ export default function DeployCard() {
 
       {/* Buttons */}
       <div className='flex gap-2'>
-        <Link href='https://github.com/username/frastra' target='_blank' rel='noopener noreferrer' className='flex-1'>
+        <Link href='https://github.com/emirkrhan/frastra' target='_blank' rel='noopener noreferrer' className='flex-1'>
           <button className='w-full bg-white text-black px-4 py-2 rounded-md text-xs font-medium hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white'>
             View Code
           </button>
         </Link>
-        <Link href='https://github.com/username/frastra' target='_blank' rel='noopener noreferrer' className='flex-1'>
+        <Link href='https://github.com/emirkrhan/frastra' target='_blank' rel='noopener noreferrer' className='flex-1'>
           <button className='w-full bg-neutral-700 text-white px-4 py-2 rounded-md text-xs font-medium hover:bg-neutral-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white border border-white/10'>
             Star
           </button>
