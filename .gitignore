@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+dist/
+.env
+.env.local
+.DS_Store
+.vscode/
+.idea/
+src/app/
