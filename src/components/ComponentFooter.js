@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
-
 // Hard-coded navigation array in exact sidebar order
 const navigationOrder = [
   { id: 'introduction', label: 'Introduction', path: '/get-started/introduction' },

@@ -13,6 +13,15 @@ import {
 import ComponentFooter from '@/components/ComponentFooter'
 import Footer from '@/components/Footer'
 
+export const metadata = {
+  title: 'Button - Frastra UI Components',
+  description: 'Beautiful, accessible button components for your Next.js applications. Primary, secondary, outline, and danger button variants with hover effects.',
+  openGraph: {
+    title: 'Button - Frastra UI Components',
+    description: 'Beautiful, accessible button components for your Next.js applications. Primary, secondary, outline, and danger button variants with hover effects.',
+  },
+}
+
 const headings = [
   { id: 'primary', label: 'Primary' },
   { id: 'secondary', label: 'Secondary' },

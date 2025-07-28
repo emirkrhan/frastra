@@ -2,6 +2,7 @@
 
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Modal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,12 +26,23 @@ export default function Modal() {
         Open Modal
       </button>
 
-      {isOpen && (
-        <div 
-          className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'
-          onClick={handleBackdropClick}
-        >
-          <div className='relative w-full max-w-md bg-neutral-900 border border-white/10 text-white rounded-xl shadow-xl p-6 space-y-4'>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'
+            onClick={handleBackdropClick}
+          >
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className='relative w-full max-w-md bg-neutral-900 border border-white/10 text-white rounded-xl shadow-xl p-6 space-y-4'
+            >
             <button
               onClick={() => setIsOpen(false)}
               className='absolute top-4 right-4 text-gray-400 hover:text-white transition cursor-pointer'
@@ -87,9 +99,10 @@ export default function Modal() {
                 Save changes
               </button>
             </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
