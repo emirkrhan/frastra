@@ -153,13 +153,13 @@ export default function Navbar() {
           </Link>
           <nav className="hidden md:flex items-center gap-4">
             <Link
-              href="/docs"
+              href="/get-started/introduction"
               className="text-sm text-white/70 hover:text-white transition"
             >
               Docs
             </Link>
             <Link
-              href="/components"
+              href="/components/accordion"
               className="text-sm text-white/70 hover:text-white transition"
             >
               Components

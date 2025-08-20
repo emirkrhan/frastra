@@ -29,7 +29,7 @@ export function BorderlessAccordion({ items = [], allowMultiple = true }) {
         const buttonId = `accordion-button-${index}`;
 
         return (
-          <div key={index} className="bg-white/5 rounded-md p-4">
+          <div key={index} className="bg-secondary rounded-md p-4">
             <button
               onClick={() => toggleItem(index)}
               aria-expanded={isOpen}
@@ -37,14 +37,14 @@ export function BorderlessAccordion({ items = [], allowMultiple = true }) {
               id={buttonId}
               className="w-full flex items-center justify-between text-left"
             >
-              <span className="text-sm font-medium text-white">
+              <span className="text-paragraph-size font-paragraph text-paragraph">
                 {item.question}
               </span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronDownIcon className="w-4 h-4 text-white/70" />
+                <ChevronDownIcon className="w-4 h-4 text-descriptive" />
               </motion.div>
             </button>
             <AnimatePresence initial={false}>
@@ -60,7 +60,7 @@ export function BorderlessAccordion({ items = [], allowMultiple = true }) {
                   className="overflow-hidden"
                 >
                   <div className="pt-3">
-                    <p className="text-sm text-white/70">{item.answer}</p>
+                    <p className="text-descriptive-size font-descriptive text-descriptive">{item.answer}</p>
                   </div>
                 </motion.div>
               )}

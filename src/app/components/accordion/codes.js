@@ -32,7 +32,7 @@ export function DefaultAccordion({ items = [], allowMultiple = true }) {
         const buttonId = \`accordion-button-\${index}\`
 
         return (
-          <div key={index} className='border-b border-white/10 last:border-b-0'>
+          <div key={index} className='border-b border-primary last:border-b-0'>
             <button
               onClick={() => toggleItem(index)}
               aria-expanded={isOpen}
@@ -40,14 +40,14 @@ export function DefaultAccordion({ items = [], allowMultiple = true }) {
               id={buttonId}
               className='w-full flex items-center justify-between py-4 text-left'
             >
-              <span className='text-sm font-medium text-white'>
+              <span className='text-text-size font-text text-text'>
                 {item.question}
               </span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronDownIcon className='w-4 h-4 text-white/70' />
+                <ChevronDownIcon className='w-4 h-4 text-descriptive' />
               </motion.div>
             </button>
             <AnimatePresence>
@@ -63,7 +63,7 @@ export function DefaultAccordion({ items = [], allowMultiple = true }) {
                   className='overflow-hidden'
                 >
                   <div className='pb-4'>
-                    <p className='text-sm text-white/70'>{item.answer}</p>
+                    <p className='text-descriptive-size font-descriptive text-descriptive'>{item.answer}</p>
                   </div>
                 </motion.div>
               )}
@@ -116,7 +116,7 @@ export function SingleAccordion({ items = [] }) {
         const buttonId = \`accordion-button-\${index}\`;
 
         return (
-          <div key={index} className="border-b border-white/10 last:border-b-0">
+          <div key={index} className="border-b border-primary last:border-b-0">
             <button
               onClick={() => toggleItem(index)}
               aria-expanded={isOpen}
@@ -124,14 +124,14 @@ export function SingleAccordion({ items = [] }) {
               id={buttonId}
               className="w-full flex items-center justify-between py-4 text-left"
             >
-              <span className="text-sm font-medium text-white">
+              <span className="text-text-size font-text text-text">
                 {item.question}
               </span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronDownIcon className="w-4 h-4 text-white/70" />
+                <ChevronDownIcon className="w-4 h-4 text-descriptive" />
               </motion.div>
             </button>
 
@@ -148,7 +148,7 @@ export function SingleAccordion({ items = [] }) {
                   className="overflow-hidden"
                 >
                   <div className="pb-4">
-                    <p className="text-sm text-white/70">{item.answer}</p>
+                    <p className="text-descriptive-size font-descriptive text-descriptive">{item.answer}</p>
                   </div>
                 </motion.div>
               )}
@@ -210,7 +210,7 @@ export function BorderlessAccordion({ items = [], allowMultiple = true }) {
         const buttonId = \`accordion-button-\${index}\`;
 
         return (
-          <div key={index} className="bg-white/5 rounded-md p-4">
+          <div key={index} className="bg-tertiary rounded-md p-4">
             <button
               onClick={() => toggleItem(index)}
               aria-expanded={isOpen}
@@ -218,14 +218,14 @@ export function BorderlessAccordion({ items = [], allowMultiple = true }) {
               id={buttonId}
               className="w-full flex items-center justify-between text-left"
             >
-              <span className="text-sm font-medium text-white">
+              <span className="text-text-size font-text text-text">
                 {item.question}
               </span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronDownIcon className="w-4 h-4 text-white/70" />
+                <ChevronDownIcon className="w-4 h-4 text-descriptive" />
               </motion.div>
             </button>
             <AnimatePresence initial={false}>
@@ -241,7 +241,7 @@ export function BorderlessAccordion({ items = [], allowMultiple = true }) {
                   className="overflow-hidden"
                 >
                   <div className="pt-3">
-                    <p className="text-sm text-white/70">{item.answer}</p>
+                    <p className="text-descriptive-size font-descriptive text-descriptive">{item.answer}</p>
                   </div>
                 </motion.div>
               )}

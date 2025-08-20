@@ -71,15 +71,7 @@ export default function StatusTable({ data, columns }) {
     )
   }
 
-  const getAvatarColor = (name) => {
-    const colors = [
-      'from-blue-400 to-purple-500',
-      'from-green-400 to-blue-500',
-      'from-purple-400 to-pink-500',
-      'from-yellow-400 to-orange-500'
-    ]
-    return colors[name.length % colors.length]
-  }
+  const getAvatarColor = () => 'bg-neutral-800'
 
   return (
     <div className='w-full overflow-hidden rounded-lg border border-white/10'>
@@ -114,10 +106,8 @@ export default function StatusTable({ data, columns }) {
               </td>
               <td className='px-4 py-3 text-sm text-white/90'>
                 <div className='flex items-center gap-2'>
-                  <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${getAvatarColor(row.assignee)} flex items-center justify-center`}>
-                    <span className='text-xs font-semibold text-white'>
-                      {row.avatar}
-                    </span>
+                  <div className={`w-6 h-6 rounded-full ${getAvatarColor()} border border-white/10 flex items-center justify-center`}>
+                    <span className='text-xs font-semibold text-white'>{row.avatar}</span>
                   </div>
                   {row.assignee}
                 </div>

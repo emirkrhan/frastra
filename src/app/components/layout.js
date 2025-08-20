@@ -1,14 +1,14 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import Sidebar from "@/components/Sidebar"
 
 export default function ComponentLayout({ children }) {
-  const pathname = usePathname()
-  const componentName = pathname.split('/').pop()
-
   return (
-    <div className='p-8'>
-      {children}
-    </div>
+    <>
+      <Sidebar />
+      <div className='ml-64 p-8'>
+        {children}
+      </div>
+    </>
   )
-} 
+}

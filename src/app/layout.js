@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
 import Navbar from '@/components/Navbar'
 import { ToastProvider } from "@/components/toast/ToastProvider";
 
@@ -53,8 +52,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} bg-black text-white`}>
         <ToastProvider>
           <Navbar />
-          <Sidebar />
-          <main className='ml-[20%] pt-16'>
+          <main className='pt-16'>
             {children}
           </main>
         </ToastProvider>

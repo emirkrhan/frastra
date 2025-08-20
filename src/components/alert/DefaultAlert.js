@@ -2,12 +2,12 @@
 
 export default function DefaultAlert() {
   return (
-    <div className="flex w-full max-w-lg gap-3 rounded-md border border-white/10 bg-neutral-800 p-4">
+    <div className="flex w-full max-w-lg gap-3 rounded-md border border-border bg-tertiary p-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="size-5 flex-shrink-0 text-white"
+        className="size-5 flex-shrink-0 text-paragraph"
       >
         <path
           fillRule="evenodd"
@@ -16,8 +16,8 @@ export default function DefaultAlert() {
         />
       </svg>
       <div className="flex-grow">
-        <h5 className="font-bold text-white">Heads up!</h5>
-        <p className="text-sm text-white/70">You can add components to your app using the CLI.</p>
+        <h5 className="font-title text-paragraph">Heads up!</h5>
+        <p className="text-descriptive-size text-descriptive">You can add components to your app using the CLI.</p>
       </div>
     </div>
   )

@@ -1,7 +1,12 @@
+import Sidebar from "@/components/Sidebar";
+
 export default function Layout({ children }) {
   return (
-    <div className="p-8">
-      {children}
-    </div>
+    <>
+      <Sidebar />
+      <div className="ml-64 p-8">
+        {children}
+      </div>
+    </>
   );
-} 
+}

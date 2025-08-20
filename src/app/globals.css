@@ -381,6 +381,31 @@
   --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-bounce: bounce 1s infinite;
+  /* Frastra UI theme tokens */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #0a0a0a;
+  --color-secondary: #171717;
+  --color-tertiary: #262626;
+  --color-border: #232323;
+
+  /* Typography */
+  --color-title: #ffffff;
+  --text-title-size: 16px;
+  --font-weight-title: 700;
+
+  --color-paragraph: #ffffff;
+  --text-paragraph-size: 14px;
+  --font-weight-paragraph: 500;
+
+  --color-descriptive: #b6b6b6;
+  --text-descriptive-size: 14px;
+  --font-weight-descriptive: 400;
+
+  --color-tips: #b6b6b6;
+  --text-tips-size: 12px;
+  --font-weight-tips: 400;
+
   @keyframes spin {
     to {
       transform: rotate(360deg);
@@ -435,4 +460,35 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+/* Frastra UI – Base Design Tokens (do not modify existing tokens above) */
+:root {
+  /* Palette */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #0a0a0a;
+  --color-secondary: #171717;
+  --color-tertiary: #262626;
+
+  /* Typography */
+  --color-title: #ffffff;
+  --text-title: 16px;
+  --font-weight-title: 700;
+
+  --color-text: #ffffff;
+  --text-text: 14px;
+  --font-weight-text: 400;
+
+  --color-descriptive: #b6b6b6;
+  --text-descriptive: 14px;
+  --font-weight-descriptive: 400;
+
+  --color-tips: #b6b6b6;
+  --text-tips: 12px;
+  --font-weight-tips: 400;
+
+  /* Border */
+  --border-color: #232323;
+  --border-width: 1px;
 }

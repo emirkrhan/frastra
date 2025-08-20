@@ -19,7 +19,7 @@ export function SingleAccordion({ items = [] }) {
         const buttonId = `accordion-button-${index}`;
 
         return (
-          <div key={index} className="border-b border-white/10 last:border-b-0">
+          <div key={index} className="border-b border-border last:border-b-0">
             <button
               onClick={() => toggleItem(index)}
               aria-expanded={isOpen}
@@ -27,14 +27,14 @@ export function SingleAccordion({ items = [] }) {
               id={buttonId}
               className="w-full flex items-center justify-between py-4 text-left"
             >
-              <span className="text-sm font-medium text-white">
+              <span className="text-paragraph-size font-paragraph text-paragraph">
                 {item.question}
               </span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronDownIcon className="w-4 h-4 text-white/70" />
+                <ChevronDownIcon className="w-4 h-4 text-descriptive" />
               </motion.div>
             </button>
 
@@ -51,7 +51,7 @@ export function SingleAccordion({ items = [] }) {
                   className="overflow-hidden"
                 >
                   <div className="pb-4">
-                    <p className="text-sm text-white/70">{item.answer}</p>
+                    <p className="text-descriptive-size font-descriptive text-descriptive">{item.answer}</p>
                   </div>
                 </motion.div>
               )}

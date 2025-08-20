@@ -51,14 +51,14 @@ export default function AvatarList({ items }) {
 
   return (
     <div className='w-full max-w-md'>
-      <ul className='space-y-2'>
+      <ul className='space-y-1'>
         {listItems.map((item) => (
           <li 
             key={item.id}
-            className='flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-white/5 transition-colors'
+            className='flex items-center gap-2 px-3 py-2 rounded-md hover:bg-white/5 transition-colors'
           >
             <div className='relative flex-shrink-0'>
-              <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center`}>
+              <div className={'w-9 h-9 rounded-full bg-neutral-800 border border-white/10 flex items-center justify-center'}>
                 <span className='text-sm font-semibold text-white'>
                   {item.avatar}
                 </span>
