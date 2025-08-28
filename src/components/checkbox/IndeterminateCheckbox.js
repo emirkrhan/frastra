@@ -17,7 +17,7 @@ export default function IndeterminateCheckbox() {
           checked={allChecked}
           ref={(el) => el && (el.indeterminate = isIndeterminate)}
           onChange={(e) => setCheckedItems(Array(2).fill(e.target.checked))}
-          className='size-4 rounded bg-neutral-800 border-white/20 text-white focus:ring-white/20'
+          className='size-4 rounded bg-secondary border-border text-white focus:ring-white/20'
         />
         <label htmlFor='parent'>Select All</label>
       </div>
@@ -28,7 +28,7 @@ export default function IndeterminateCheckbox() {
             id='child1'
             checked={checkedItems[0]}
             onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
-            className='size-4 rounded bg-neutral-800 border-white/20 text-white focus:ring-white/20'
+            className='size-4 rounded bg-secondary border-border text-white focus:ring-white/20'
           />
           <label htmlFor='child1'>Option 1</label>
         </div>
@@ -38,7 +38,7 @@ export default function IndeterminateCheckbox() {
             id='child2'
             checked={checkedItems[1]}
             onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
-            className='size-4 rounded bg-neutral-800 border-white/20 text-white focus:ring-white/20'
+            className='size-4 rounded bg-secondary border-border text-white focus:ring-white/20'
           />
           <label htmlFor='child2'>Option 2</label>
         </div>

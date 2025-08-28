@@ -13,8 +13,7 @@ export const metadata = {
 
 import DefaultFooter from "@/components/footer/DefaultFooter";
 import Link from "next/link";
-import PrimaryButton from "@/components/button/PrimaryButton";
-import OutlineButton from "@/components/button/OutlineButton";
+import Button from "@/components/button/Button";
  
  
 import InteractiveAreaChart from "@/components/chart/InteractiveAreaChart";
@@ -196,10 +195,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-2">
               <Link href="/get-started/introduction">
-                <PrimaryButton>Get Started</PrimaryButton>
+                <Button variant="primary">Get Started</Button>
               </Link>
               <Link href="/components/accordion">
-                <OutlineButton>Browse Components</OutlineButton>
+                <Button variant="outline">Browse Components</Button>
               </Link>
           </div>
         </div>

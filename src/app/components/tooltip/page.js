@@ -5,7 +5,7 @@ import ComponentFooter from '@/components/ComponentFooter'
 import TableOfContents from '@/components/TableOfContents'
 import Footer from '@/components/Footer'
 import { Tooltip } from '@/components/tooltip/Tooltip'
-import PrimaryButton from '@/components/button/PrimaryButton'
+import Button from '@/components/button/Button'
 import { 
   tooltipComponentTabs, 
   tooltipUsageTabs, 
@@ -58,16 +58,16 @@ export default function TooltipPage() {
             <PreviewAndCode codeTabs={placementExamplesTabs}>
               <div className='grid grid-cols-2 gap-8 place-items-center p-8'>
                 <Tooltip content='Tooltip on top' placement='top'>
-                  <PrimaryButton>Top</PrimaryButton>
+                  <Button variant='primary'>Top</Button>
                 </Tooltip>
                 <Tooltip content='Tooltip on right' placement='right'>
-                  <PrimaryButton>Right</PrimaryButton>
+                  <Button variant='primary'>Right</Button>
                 </Tooltip>
                 <Tooltip content='Tooltip on left' placement='left'>
-                  <PrimaryButton>Left</PrimaryButton>
+                  <Button variant='primary'>Left</Button>
                 </Tooltip>
                 <Tooltip content='Tooltip on bottom' placement='bottom'>
-                  <PrimaryButton>Bottom</PrimaryButton>
+                  <Button variant='primary'>Bottom</Button>
                 </Tooltip>
               </div>
             </PreviewAndCode>

@@ -46,34 +46,34 @@ export function Tooltip({ children, content, placement = 'top' }) {
 
 // 2. Usage Example
 const tooltipUsageCode = `import { Tooltip } from '@/components/tooltip/Tooltip'
-import PrimaryButton from '@/components/button/PrimaryButton'
+import Button from '@/components/button/Button'
 
 export default function TooltipExample() {
   return (
     <Tooltip content="I'm a tooltip!" placement="top">
-      <PrimaryButton>Hover me</PrimaryButton>
+      <Button variant="primary">Hover me</Button>
     </Tooltip>
   )
 }`;
 
 // 3. Placement Examples
 const placementExamplesCode = `import { Tooltip } from '@/components/tooltip/Tooltip'
-import PrimaryButton from '@/components/button/PrimaryButton'
+import Button from '@/components/button/Button'
 
 export default function PlacementExamples() {
   return (
     <div className='grid grid-cols-2 gap-8 place-items-center p-8'>
       <Tooltip content='Tooltip on top' placement='top'>
-        <PrimaryButton>Top</PrimaryButton>
+        <Button variant='primary'>Top</Button>
       </Tooltip>
       <Tooltip content='Tooltip on right' placement='right'>
-        <PrimaryButton>Right</PrimaryButton>
+        <Button variant='primary'>Right</Button>
       </Tooltip>
       <Tooltip content='Tooltip on left' placement='left'>
-        <PrimaryButton>Left</PrimaryButton>
+        <Button variant='primary'>Left</Button>
       </Tooltip>
       <Tooltip content='Tooltip on bottom' placement='bottom'>
-        <PrimaryButton>Bottom</PrimaryButton>
+        <Button variant='primary'>Bottom</Button>
       </Tooltip>
     </div>
   )

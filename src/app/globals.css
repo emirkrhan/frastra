@@ -387,7 +387,9 @@
   --color-primary: #0a0a0a;
   --color-secondary: #171717;
   --color-tertiary: #262626;
-  --color-border: #232323;
+  --color-border: #3c3c3c;
+  --color-danger: #fb2c36;
+  --color-success: #00c951;
 
   /* Typography */
   --color-title: #ffffff;

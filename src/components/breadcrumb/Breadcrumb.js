@@ -5,9 +5,9 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid'
 export default function Breadcrumb({ items, separator, icon: Icon, slash = false }) {
   const Separator = separator || (
     slash ? (
-      <span className="text-gray-500 text-sm font-light">/</span>
+      <span className="text-descriptive text-descriptive-size font-descriptive">/</span>
     ) : (
-      <ChevronRightIcon className='h-5 w-5 text-gray-500' />
+      <ChevronRightIcon className='h-5 w-5 text-descriptive' />
     )
   )
 
@@ -23,7 +23,7 @@ export default function Breadcrumb({ items, separator, icon: Icon, slash = false
                 className={`flex items-center text-sm font-medium ${
                   index === items.length - 1
                     ? 'pointer-events-none text-white'
-                    : 'text-gray-400 hover:text-white'
+                    : 'text-descriptive hover:text-white'
                 }`}
                 aria-current={index === items.length - 1 ? 'page' : undefined}
               >

@@ -7,14 +7,14 @@ export default function DisabledCheckbox() {
         disabled
         id="disabled-unchecked"
         type='checkbox'
-        className='size-4 rounded bg-neutral-800 border-white/20 text-white focus:ring-white/20 disabled:opacity-50 disabled:cursor-not-allowed'
+        className='size-4 rounded bg-secondary border-border text-white focus:ring-white/20 disabled:opacity-50 disabled:cursor-not-allowed'
       />
       <input
         disabled
         id="disabled-checked"
         type='checkbox'
         defaultChecked
-        className='size-4 rounded bg-neutral-800 border-white/20 text-white focus:ring-white/20 disabled:opacity-50 disabled:cursor-not-allowed'
+        className='size-4 rounded bg-secondary border-border text-white focus:ring-white/20 disabled:opacity-50 disabled:cursor-not-allowed'
       />
     </div>
   )

@@ -1,15 +1,7 @@
-import PrimaryButton from '@/components/button/PrimaryButton'
-import SecondaryButton from '@/components/button/SecondaryButton'
-import OutlineButton from '@/components/button/OutlineButton'
-import DangerButton from '@/components/button/DangerButton'
+import Button from '@/components/button/Button'
 import PreviewAndCode from '@/components/PreviewAndCode'
 import TableOfContents from '@/components/TableOfContents'
-import {
-  primaryButtonTabs,
-  secondaryButtonTabs,
-  outlineButtonTabs,
-  dangerButtonTabs,
-} from './codes'
+import { buttonComponentTabs, primaryButtonTabs, secondaryButtonTabs, outlineButtonTabs, dangerButtonTabs, disabledButtonTabs } from './codes'
 import ComponentFooter from '@/components/ComponentFooter'
 import Footer from '@/components/Footer'
 
@@ -23,10 +15,12 @@ export const metadata = {
 }
 
 const headings = [
+  { id: 'component', label: 'Component' },
   { id: 'primary', label: 'Primary' },
   { id: 'secondary', label: 'Secondary' },
   { id: 'outline', label: 'Outline' },
   { id: 'danger', label: 'Danger' },
+  { id: 'disabled', label: 'Disabled' },
 ]
 
 export default function ButtonPage() {
@@ -41,43 +35,43 @@ export default function ButtonPage() {
         </div>
 
         <div className='space-y-12 mt-10'>
+          <section id='component' className='space-y-4 scroll-mt-24'>
+            <h2 className='text-xl font-semibold'>Component</h2>
+            <PreviewAndCode preview={false} codeTabs={buttonComponentTabs} />
+          </section>
+
           <section id='primary' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Primary</h2>
             <PreviewAndCode codeTabs={primaryButtonTabs}>
-              <div className="flex gap-4">
-                <PrimaryButton>Primary</PrimaryButton>
-                <PrimaryButton disabled>Disabled</PrimaryButton>
-              </div>
+              <Button variant='primary'>Primary</Button>
             </PreviewAndCode>
           </section>
 
           <section id='secondary' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Secondary</h2>
             <PreviewAndCode codeTabs={secondaryButtonTabs}>
-              <div className="flex gap-4">
-                <SecondaryButton>Secondary</SecondaryButton>
-                <SecondaryButton disabled>Disabled</SecondaryButton>
-              </div>
+              <Button variant='secondary'>Secondary</Button>
             </PreviewAndCode>
           </section>
 
           <section id='outline' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Outline</h2>
             <PreviewAndCode codeTabs={outlineButtonTabs}>
-              <div className="flex gap-4">
-                <OutlineButton>Outline</OutlineButton>
-                <OutlineButton disabled>Disabled</OutlineButton>
-              </div>
+              <Button variant='outline'>Outline</Button>
             </PreviewAndCode>
           </section>
 
           <section id='danger' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Danger</h2>
             <PreviewAndCode codeTabs={dangerButtonTabs}>
-              <div className="flex gap-4">
-                <DangerButton>Danger</DangerButton>
-                <DangerButton disabled>Disabled</DangerButton>
-              </div>
+              <Button variant='danger'>Danger</Button>
+            </PreviewAndCode>
+          </section>
+
+          <section id='disabled' className='space-y-4 scroll-mt-24'>
+            <h2 className='text-xl font-semibold'>Disabled</h2>
+            <PreviewAndCode codeTabs={disabledButtonTabs}>
+              <Button variant='primary' disabled>Disabled</Button>
             </PreviewAndCode>
           </section>
         </div>

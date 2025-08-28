@@ -6,9 +6,9 @@ export default function CheckboxWithLabel() {
       <input
         id="terms"
         type='checkbox'
-        className='size-4 rounded bg-neutral-800 border-white/20 text-white focus:ring-white/20'
+        className='size-4 rounded bg-secondary border-border text-white focus:ring-white/20'
       />
-      <label htmlFor="terms" className="text-sm text-white/80">
+      <label htmlFor="terms" className="text-paragraph-size text-paragraph">
         Accept terms and conditions
       </label>
     </div>

@@ -2,7 +2,7 @@ import DefaultInput from '@/components/input/DefaultInput'
 import ErrorInput from '@/components/input/ErrorInput'
 import PreviewAndCode from '@/components/PreviewAndCode'
 import TableOfContents from '@/components/TableOfContents'
-import { defaultInputTabs, errorInputTabs } from './codes'
+import { defaultInputTabs, defaultInputUsage, errorInputTabs } from './codes'
 import ComponentFooter from '@/components/ComponentFooter'
 import Footer from '@/components/Footer'
 
@@ -23,17 +23,25 @@ export default function InputPage() {
         </div>
 
         <div className='space-y-8 mt-10'>
+
+        <section id='default' className='space-y-4 scroll-mt-24'>
+            <h2 className='text-xl font-semibold'>Component</h2>
+            <PreviewAndCode preview={false} codeTabs={defaultInputUsage}>
+            </PreviewAndCode>
+          </section>
+
+
           <section id='default' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Default</h2>
             <PreviewAndCode codeTabs={defaultInputTabs}>
-              <DefaultInput />
+            <DefaultInput placeholder="Email" />
             </PreviewAndCode>
           </section>
 
           <section id='error' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Error State</h2>
             <PreviewAndCode codeTabs={errorInputTabs}>
-              <ErrorInput />
+            <DefaultInput defaultValue="wrong@email" error />
             </PreviewAndCode>
           </section>
         </div>

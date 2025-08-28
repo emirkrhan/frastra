@@ -34,7 +34,7 @@ export default function DefaultDropdown() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           type='button'
-          className='inline-flex items-center justify-center gap-2 w-full rounded-md px-3 py-1.5 bg-white/10 text-sm font-medium text-white/80 hover:bg-white/20 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50'
+          className='inline-flex items-center cursor-pointer justify-center gap-2 w-full rounded-md px-3 py-1.5 bg-tertiary text-paragraph-size font-paragraph text-paragraph transition-colors'
           id='menu-button'
           aria-expanded={isOpen}
           aria-haspopup='true'
@@ -50,7 +50,7 @@ export default function DefaultDropdown() {
       </div>
 
       <div
-        className={`transition-all duration-200 ease-out origin-top-right absolute right-0 mt-1.5 w-56 rounded-xl shadow-lg bg-neutral-800 ring-1 ring-white/5 focus:outline-none z-10 p-1 ${
+        className={`transition-all duration-200 ease-out origin-top-right absolute right-0 mt-1.5 w-56 rounded-xl shadow-lg bg-tertiary ring-1 ring-border focus:outline-none z-10 p-1 ${
           isOpen
             ? 'opacity-100 scale-100'
             : 'opacity-0 scale-95 pointer-events-none'
@@ -62,7 +62,7 @@ export default function DefaultDropdown() {
       >
         <a
           href='#'
-          className='group flex w-full items-center rounded-md px-2 py-1.5 text-sm text-white/80 hover:bg-white/5 hover:text-white transition-colors'
+          className='group flex w-full items-center rounded-md px-2 py-1.5 text-paragraph-size text-paragraph hover:bg-secondary transition-colors'
           role='menuitem'
           tabIndex='-1'
           id='menu-item-0'
@@ -72,7 +72,7 @@ export default function DefaultDropdown() {
         </a>
         <a
           href='#'
-          className='group flex w-full items-center rounded-md px-2 py-1.5 text-sm text-white/80 hover:bg-white/5 hover:text-white transition-colors'
+          className='group flex w-full items-center rounded-md px-2 py-1.5 text-paragraph-size text-paragraph hover:bg-secondary transition-colors'
           role='menuitem'
           tabIndex='-1'
           id='menu-item-1'
@@ -82,7 +82,7 @@ export default function DefaultDropdown() {
         </a>
         <a
           href='#'
-          className='group flex w-full items-center rounded-md px-2 py-1.5 text-sm text-white/80 hover:bg-white/5 hover:text-white transition-colors'
+          className='group flex w-full items-center rounded-md px-2 py-1.5 text-paragraph-size text-paragraph hover:bg-secondary transition-colors'
           role='menuitem'
           tabIndex='-1'
           id='menu-item-2'
@@ -93,7 +93,7 @@ export default function DefaultDropdown() {
         <div className='my-0.5 h-px bg-white/5' />
         <a
           href='#'
-          className='group flex w-full items-center rounded-md px-2 py-1.5 text-sm text-white/80 hover:bg-white/5 hover:text-white transition-colors'
+          className='group flex w-full items-center rounded-md px-2 py-1.5 text-paragraph-size text-paragraph hover:bg-secondary transition-colors'
           role='menuitem'
           tabIndex='-1'
         >
@@ -102,17 +102,17 @@ export default function DefaultDropdown() {
         </a>
         <a
           href='#'
-          className='group flex w-full items-center rounded-md px-2 py-1.5 text-sm text-white/80 hover:bg-white/5 hover:text-white transition-colors'
+          className='group flex w-full items-center rounded-md px-2 py-1.5 text-paragraph-size text-paragraph hover:bg-secondary transition-colors'
           role='menuitem'
           tabIndex='-1'
         >
           <ArrowUturnRightIcon className='mr-2 size-4 text-white' />
           Move
         </a>
-        <div className='my-0.5 h-px bg-white/5' />
+        <div className='my-0.5 h-px bg-border' />
         <a
           href='#'
-          className='group flex w-full items-center rounded-md px-2 py-1.5 text-sm text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors'
+          className='group flex w-full items-center rounded-md px-2 py-1.5 text-paragraph-size text-danger hover:bg-danger/10 transition-colors'
           role='menuitem'
           tabIndex='-1'
           id='menu-item-3'

@@ -1,13 +1,19 @@
 'use client'
 import React from 'react'
+import clsx from 'clsx'
 
-export default function DefaultInput(props) {
+export default function Input({ error, className, ...props }) {
   return (
     <input
       type="text"
-      placeholder="Email"
-      className="w-full max-w-xs px-3 py-2 rounded-md bg-neutral-800 border border-white/10 text-sm text-white placeholder-neutral-400 focus:outline-none hover:border-white/20 focus:border-white/30 transition-all duration-150"
+      className={clsx(
+        "w-full max-w-xs px-3 py-2 rounded-md bg-tertiary text-paragraph-size text-paragraph placeholder-descriptive focus:outline-none transition-all duration-150",
+        error
+          ? "border border-danger focus:border-danger"
+          : "border border-border hover:border-white/30 focus:border-white/30",
+        className
+      )}
       {...props}
     />
   )
-} 
+}

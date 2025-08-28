@@ -1,29 +1,26 @@
-import DefaultBadge from '@/components/badge/DefaultBadge'
-import SecondaryBadge from '@/components/badge/SecondaryBadge'
-import DestructiveBadge from '@/components/badge/DestructiveBadge'
-import OutlineBadge from '@/components/badge/OutlineBadge'
-import IconBadge from '@/components/badge/IconBadge'
-import NotificationDot from '@/components/badge/NotificationDot'
+import Badge from '@/components/badge/Badge'
+import { CheckCircleIcon } from '@heroicons/react/24/solid'
 import PreviewAndCode from '@/components/PreviewAndCode'
 import TableOfContents from '@/components/TableOfContents'
 import {
+  badgeComponentTabs,
   defaultBadgeTabs,
   secondaryBadgeTabs,
   destructiveBadgeTabs,
   outlineBadgeTabs,
   iconBadgeTabs,
-  notificationDotTabs,
 } from './codes'
 import ComponentFooter from '@/components/ComponentFooter'
 import Footer from '@/components/Footer'
 
 const headings = [
+  { id: 'component', label: 'Component' },
   { id: 'default', label: 'Default' },
   { id: 'secondary', label: 'Secondary' },
   { id: 'destructive', label: 'Destructive' },
   { id: 'outline', label: 'Outline' },
   { id: 'with-icon', label: 'With Icon' },
-  { id: 'notification', label: 'Notification' },
+  // Notification başlığı kaldırıldı
 ]
 
 export default function BadgePage() {
@@ -38,47 +35,46 @@ export default function BadgePage() {
         </div>
 
         <div className='space-y-8 mt-10'>
+          <section id='component' className='space-y-4 scroll-mt-24'>
+            <h2 className='text-xl font-semibold'>Component</h2>
+            <PreviewAndCode preview={false} codeTabs={badgeComponentTabs} />
+          </section>
           <section id='default' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Default</h2>
             <PreviewAndCode codeTabs={defaultBadgeTabs}>
-              <DefaultBadge />
+              <Badge variant="primary">Badge</Badge>
             </PreviewAndCode>
           </section>
 
           <section id='secondary' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Secondary</h2>
             <PreviewAndCode codeTabs={secondaryBadgeTabs}>
-              <SecondaryBadge />
+              <Badge variant="secondary">Badge</Badge>
             </PreviewAndCode>
           </section>
 
           <section id='destructive' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Destructive</h2>
             <PreviewAndCode codeTabs={destructiveBadgeTabs}>
-              <DestructiveBadge />
+              <Badge variant="destructive">Badge</Badge>
             </PreviewAndCode>
           </section>
 
           <section id='outline' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>Outline</h2>
             <PreviewAndCode codeTabs={outlineBadgeTabs}>
-              <OutlineBadge />
+              <Badge variant="outline">Badge</Badge>
             </PreviewAndCode>
           </section>
 
           <section id='with-icon' className='space-y-4 scroll-mt-24'>
             <h2 className='text-xl font-semibold'>With Icon</h2>
             <PreviewAndCode codeTabs={iconBadgeTabs}>
-              <IconBadge />
+              <Badge variant="success" icon={<CheckCircleIcon className="size-3.5" />}>Verified</Badge>
             </PreviewAndCode>
           </section>
 
-          <section id='notification' className='space-y-4 scroll-mt-24'>
-            <h2 className='text-xl font-semibold'>Notification</h2>
-            <PreviewAndCode codeTabs={notificationDotTabs}>
-              <NotificationDot />
-            </PreviewAndCode>
-          </section>
+          {/* Notification bölümü kaldırıldı */}
         </div>
         <ComponentFooter currentComponent='badge' />
         <Footer />
