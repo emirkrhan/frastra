@@ -33,20 +33,20 @@ export function TextareaWithCounter({
   }
 
   const getCounterColor = () => {
-    if (isOverLimit) return 'text-red-400'
-    if (isNearLimit) return 'text-yellow-400'
-    return 'text-white/50'
+    if (isOverLimit) return 'text-danger'
+    if (isNearLimit) return 'text-info'
+    return 'text-tips'
   }
 
   const getBorderColor = () => {
-    if (isOverLimit) return 'border-red-500/50 focus:ring-red-500/20'
-    return 'border-white/10 focus:ring-white/20 hover:border-white/20'
+    if (isOverLimit) return 'border-danger focus:border-danger'
+    return 'border-border hover:border-white/30 focus:border-white/30'
   }
 
   return (
     <div className="w-full space-y-2">
       {label && (
-        <label className="block text-sm font-medium text-white/90">
+        <label className="block text-paragraph-size font-paragraph text-paragraph">
           {label}
         </label>
       )}
@@ -57,15 +57,15 @@ export function TextareaWithCounter({
           placeholder={placeholder}
           rows={rows}
           maxLength={maxLength}
-          className={`w-full px-3 py-2 text-sm bg-neutral-800 border rounded-md text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:border-transparent transition-colors resize-vertical ${getBorderColor()} ${className}`}
+          className={`w-full px-3 py-2 text-paragraph-size bg-tertiary border rounded-md text-paragraph placeholder-descriptive focus:outline-none transition-all duration-150 resize-vertical ${getBorderColor()} ${className}`}
           {...props}
         />
         {showCounter && (
           <div className="flex justify-between items-center mt-2">
-            <div className="text-xs text-white/50">
+            <div className="text-tips-size text-tips">
               {isOverLimit && "Character limit exceeded"}
             </div>
-            <div className={`text-xs font-medium ${getCounterColor()}`}>
+            <div className={`text-tips-size font-tips ${getCounterColor()}`}>
               {currentLength}/{maxLength}
             </div>
           </div>

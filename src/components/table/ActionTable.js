@@ -52,64 +52,64 @@ export default function ActionTable({ data, onEdit, onDelete, onView }) {
   }
 
   return (
-    <div className='w-full overflow-hidden rounded-lg border border-white/10'>
+    <div className='w-full overflow-hidden rounded-lg border border-border'>
       <table className='w-full'>
-        <thead className='bg-white/5'>
+        <thead className='bg-secondary'>
           <tr>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Project
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Type
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Last Updated
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Size
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Actions
             </th>
           </tr>
         </thead>
-        <tbody className='divide-y divide-white/10'>
+        <tbody className='divide-y divide-border'>
           {tableData.map((row) => (
             <tr
               key={row.id}
-              className='hover:bg-white/5 transition-colors'
+              className='hover:bg-secondary transition-colors'
             >
-              <td className='px-4 py-3 text-sm text-white/90 font-medium'>
+              <td className='px-4 py-3 text-paragraph-size text-paragraph font-paragraph'>
                 {row.title}
               </td>
-              <td className='px-4 py-3 text-sm text-white/70'>
+              <td className='px-4 py-3 text-paragraph-size text-descriptive'>
                 {row.type}
               </td>
-              <td className='px-4 py-3 text-sm text-white/70'>
+              <td className='px-4 py-3 text-paragraph-size text-descriptive'>
                 {row.lastUpdated}
               </td>
-              <td className='px-4 py-3 text-sm text-white/70'>
+              <td className='px-4 py-3 text-paragraph-size text-descriptive'>
                 {row.size}
               </td>
-              <td className='px-4 py-3 text-sm'>
+              <td className='px-4 py-3 text-paragraph-size'>
                 <div className='flex items-center gap-2'>
                   <button
                     onClick={() => handleView(row)}
-                    className='p-1 text-white/50 hover:text-blue-400 hover:bg-blue-500/10 rounded transition-colors'
+                    className='p-1 text-descriptive hover:text-info hover:bg-info/10 rounded transition-colors'
                     title='View'
                   >
                     <EyeIcon className='h-4 w-4' />
                   </button>
                   <button
                     onClick={() => handleEdit(row)}
-                    className='p-1 text-white/50 hover:text-yellow-400 hover:bg-yellow-500/10 rounded transition-colors'
+                    className='p-1 text-descriptive hover:text-info hover:bg-info/10 rounded transition-colors'
                     title='Edit'
                   >
                     <PencilIcon className='h-4 w-4' />
                   </button>
                   <button
                     onClick={() => handleDelete(row)}
-                    className='p-1 text-white/50 hover:text-red-400 hover:bg-red-500/10 rounded transition-colors'
+                    className='p-1 text-descriptive hover:text-danger hover:bg-danger/10 rounded transition-colors'
                     title='Delete'
                   >
                     <TrashIcon className='h-4 w-4' />

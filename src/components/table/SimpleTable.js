@@ -18,30 +18,30 @@ export default function SimpleTable({ data, columns }) {
   const tableColumns = columns || defaultColumns
 
   return (
-    <div className='w-full overflow-hidden rounded-lg border border-white/10'>
+    <div className='w-full overflow-hidden rounded-lg border border-border'>
       <table className='w-full'>
-        <thead className='bg-white/5'>
+        <thead className='bg-secondary'>
           <tr>
             {tableColumns.map((column) => (
               <th
                 key={column.key}
-                className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'
+                className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'
               >
                 {column.label}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className='divide-y divide-white/10'>
+        <tbody className='divide-y divide-border'>
           {tableData.map((row, index) => (
             <tr
               key={row.id || index}
-              className='hover:bg-white/5 transition-colors'
+              className='hover:bg-secondary transition-colors'
             >
               {tableColumns.map((column) => (
                 <td
                   key={column.key}
-                  className='px-4 py-3 text-sm text-white/90'
+                  className='px-4 py-3 text-paragraph-size text-paragraph'
                 >
                   {row[column.key]}
                 </td>

@@ -44,10 +44,10 @@ export default function StatusTable({ data, columns }) {
 
   const getStatusBadge = (status) => {
     const statusConfig = {
-      active: 'bg-green-500/20 text-green-400 border-green-500/30',
-      pending: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-      completed: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-      inactive: 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+      active: 'bg-success/20 text-success border-success/30',
+      pending: 'bg-info/20 text-info border-info/30',
+      completed: 'bg-info/20 text-info border-info/30',
+      inactive: 'bg-tertiary/50 text-descriptive border-tertiary'
     }
     
     return (
@@ -59,9 +59,9 @@ export default function StatusTable({ data, columns }) {
 
   const getPriorityBadge = (priority) => {
     const priorityConfig = {
-      high: 'bg-red-500/20 text-red-400',
-      medium: 'bg-orange-500/20 text-orange-400',
-      low: 'bg-green-500/20 text-green-400'
+      high: 'bg-danger/20 text-danger',
+      medium: 'bg-info/20 text-info',
+      low: 'bg-success/20 text-success'
     }
     
     return (
@@ -71,54 +71,54 @@ export default function StatusTable({ data, columns }) {
     )
   }
 
-  const getAvatarColor = () => 'bg-neutral-800'
+  const getAvatarColor = () => 'bg-tertiary'
 
   return (
-    <div className='w-full overflow-hidden rounded-lg border border-white/10'>
+    <div className='w-full overflow-hidden rounded-lg border border-border'>
       <table className='w-full'>
-        <thead className='bg-white/5'>
+        <thead className='bg-secondary'>
           <tr>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Project
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Assignee
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Status
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Priority
             </th>
-            <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+            <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
               Due Date
             </th>
           </tr>
         </thead>
-        <tbody className='divide-y divide-white/10'>
+        <tbody className='divide-y divide-border'>
           {tableData.map((row) => (
             <tr
               key={row.id}
-              className='hover:bg-white/5 transition-colors'
+              className='hover:bg-secondary transition-colors'
             >
-              <td className='px-4 py-3 text-sm text-white/90 font-medium'>
+              <td className='px-4 py-3 text-paragraph-size text-paragraph font-paragraph'>
                 {row.name}
               </td>
-              <td className='px-4 py-3 text-sm text-white/90'>
+              <td className='px-4 py-3 text-paragraph-size text-paragraph'>
                 <div className='flex items-center gap-2'>
-                  <div className={`w-6 h-6 rounded-full ${getAvatarColor()} border border-white/10 flex items-center justify-center`}>
-                    <span className='text-xs font-semibold text-white'>{row.avatar}</span>
+                  <div className={`w-6 h-6 rounded-full ${getAvatarColor()} border border-border flex items-center justify-center`}>
+                    <span className='text-tips-size font-tips text-paragraph'>{row.avatar}</span>
                   </div>
                   {row.assignee}
                 </div>
               </td>
-              <td className='px-4 py-3 text-sm'>
+              <td className='px-4 py-3 text-paragraph-size'>
                 {getStatusBadge(row.status)}
               </td>
-              <td className='px-4 py-3 text-sm'>
+              <td className='px-4 py-3 text-paragraph-size'>
                 {getPriorityBadge(row.priority)}
               </td>
-              <td className='px-4 py-3 text-sm text-white/70'>
+              <td className='px-4 py-3 text-paragraph-size text-descriptive'>
                 {row.dueDate}
               </td>
             </tr>

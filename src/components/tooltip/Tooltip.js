@@ -33,7 +33,7 @@ export function Tooltip({ children, content, placement = 'top' }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className={`absolute z-50 whitespace-nowrap rounded-md bg-neutral-800 border border-white/10 px-2.5 py-1.5 text-xs font-medium text-white shadow-lg backdrop-blur-sm ${placementClasses[placement]}`}
+            className={`absolute z-50 whitespace-nowrap rounded-md bg-tertiary border border-border px-2.5 py-1.5 text-tips-size font-tips text-paragraph shadow-lg backdrop-blur-sm ${placementClasses[placement]}`}
           >
             {content}
           </motion.div>

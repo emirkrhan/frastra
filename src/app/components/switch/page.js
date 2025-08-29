@@ -4,17 +4,17 @@ import PreviewAndCode from '@/components/PreviewAndCode'
 import TableOfContents from '@/components/TableOfContents'
 import ComponentFooter from '@/components/ComponentFooter'
 import Footer from '@/components/Footer'
-import DefaultSwitch from '@/components/switch/DefaultSwitch'
-import SwitchWithLabel from '@/components/switch/SwitchWithLabel'
-import DisabledSwitch from '@/components/switch/DisabledSwitch'
+import Switch from '@/components/switch/Switch'
 import { 
-  defaultSwitchTabs, 
-  switchWithLabelTabs, 
-  disabledSwitchTabs 
+  switchComponentTabs,
+  switchUsageTabs,
+  switchWithLabelTabs,
+  switchDisabledTabs
 } from './codes'
 
 const headings = [
-  { id: 'default', label: 'Default' },
+  { id: 'component', label: 'Component' },
+  { id: 'usage', label: 'Usage' },
   { id: 'with-label', label: 'With Label' },
   { id: 'disabled', label: 'Disabled' },
 ]
@@ -31,13 +31,22 @@ export default function SwitchPage() {
         </div>
 
         <div className='space-y-8 mt-10'>
-          <section id='default' className='space-y-4 scroll-mt-24'>
-            <h2 className='text-xl font-semibold'>Default</h2>
+          <section id='component' className='space-y-4 scroll-mt-24'>
+            <h2 className='text-xl font-semibold'>Component</h2>
             <p className='text-white/70 text-sm'>
-              A simple toggle switch with smooth animation and subtle styling.
+              A flexible toggle switch component with customizable props for various use cases.
             </p>
-            <PreviewAndCode codeTabs={defaultSwitchTabs}>
-              <DefaultSwitch />
+            <PreviewAndCode codeTabs={switchComponentTabs} preview={false}>
+            </PreviewAndCode>
+          </section>
+
+          <section id='usage' className='space-y-4 scroll-mt-24'>
+            <h2 className='text-xl font-semibold'>Usage</h2>
+            <p className='text-white/70 text-sm'>
+              Basic usage of the switch component without any additional props.
+            </p>
+            <PreviewAndCode codeTabs={switchUsageTabs}>
+              <Switch defaultValue={false} />
             </PreviewAndCode>
           </section>
 
@@ -47,7 +56,7 @@ export default function SwitchPage() {
               Switch component paired with a descriptive label for better accessibility.
             </p>
             <PreviewAndCode codeTabs={switchWithLabelTabs}>
-              <SwitchWithLabel />
+              <Switch label='Enable notifications' id='notifications' defaultValue={true} />
             </PreviewAndCode>
           </section>
 
@@ -56,8 +65,11 @@ export default function SwitchPage() {
             <p className='text-white/70 text-sm'>
               Non-interactive switches showing both off and on disabled states.
             </p>
-            <PreviewAndCode codeTabs={disabledSwitchTabs}>
-              <DisabledSwitch />
+            <PreviewAndCode codeTabs={switchDisabledTabs}>
+              <div className='flex items-center gap-6'>
+                <Switch disabled />
+                <Switch disabled defaultValue={true} />
+              </div>
             </PreviewAndCode>
           </section>
         </div>

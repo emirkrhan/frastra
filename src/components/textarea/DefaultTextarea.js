@@ -14,7 +14,7 @@ export function DefaultTextarea({
       onChange={onChange}
       placeholder={placeholder}
       rows={rows}
-      className={`w-full px-3 py-2 text-sm bg-neutral-800 border border-white/10 rounded-md text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent hover:border-white/20 transition-colors resize-vertical ${className}`}
+      className={`w-full px-3 py-2 text-paragraph-size bg-tertiary border border-border rounded-md text-paragraph placeholder-descriptive focus:outline-none hover:border-white/30 focus:border-white/30 transition-all duration-150 resize-vertical ${className}`}
       {...props}
     />
   )

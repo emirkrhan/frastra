@@ -67,16 +67,16 @@ export default function SelectableTable({ data, onSelectionChange }) {
   return (
     <div className='w-full'>
       {selectedItems.length > 0 && (
-        <div className='mb-3 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg'>
+        <div className='mb-3 px-4 py-2 bg-info/10 border border-info/20 rounded-lg'>
           <div className='flex items-center justify-between'>
-            <span className='text-sm text-blue-400'>
+            <span className='text-paragraph-size text-info'>
               {selectedItems.length} item{selectedItems.length > 1 ? 's' : ''} selected
             </span>
             <div className='flex gap-2'>
-              <button className='text-xs text-blue-400 hover:text-blue-300 transition-colors'>
+              <button className='text-tips-size text-info hover:text-info/80 transition-colors'>
                 Download
               </button>
-              <button className='text-xs text-red-400 hover:text-red-300 transition-colors'>
+              <button className='text-tips-size text-danger hover:text-danger/80 transition-colors'>
                 Delete
               </button>
             </div>
@@ -84,9 +84,9 @@ export default function SelectableTable({ data, onSelectionChange }) {
         </div>
       )}
       
-      <div className='overflow-hidden rounded-lg border border-white/10'>
+      <div className='overflow-hidden rounded-lg border border-border'>
         <table className='w-full'>
-          <thead className='bg-white/5'>
+          <thead className='bg-secondary'>
             <tr>
               <th className='px-4 py-3 text-left'>
                 <div className='flex items-center'>
@@ -106,21 +106,21 @@ export default function SelectableTable({ data, onSelectionChange }) {
                   </div>
                 </div>
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
                 File Name
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
                 Type
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
                 Size
               </th>
-              <th className='px-4 py-3 text-left text-xs font-medium text-white/70 uppercase tracking-wider'>
+              <th className='px-4 py-3 text-left text-tips-size font-tips text-descriptive uppercase tracking-wider'>
                 Modified
               </th>
             </tr>
           </thead>
-          <tbody className='divide-y divide-white/10'>
+          <tbody className='divide-y divide-border'>
             {tableData.map((row) => {
               const isSelected = selectedItems.includes(row.id)
               
@@ -129,8 +129,8 @@ export default function SelectableTable({ data, onSelectionChange }) {
                   key={row.id}
                   className={`transition-colors cursor-pointer ${
                     isSelected 
-                      ? 'bg-blue-500/10 hover:bg-blue-500/15' 
-                      : 'hover:bg-white/5'
+                      ? 'bg-info/10 hover:bg-info/15' 
+                      : 'hover:bg-secondary'
                   }`}
                   onClick={() => handleToggleItem(row.id)}
                 >
@@ -138,8 +138,8 @@ export default function SelectableTable({ data, onSelectionChange }) {
                     <div 
                       className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${
                         isSelected 
-                          ? 'bg-blue-500 border-blue-500' 
-                          : 'border-white/30'
+                          ? 'bg-info border-info' 
+                          : 'border-border'
                       }`}
                     >
                       {isSelected && (
@@ -147,16 +147,16 @@ export default function SelectableTable({ data, onSelectionChange }) {
                       )}
                     </div>
                   </td>
-                  <td className='px-4 py-3 text-sm text-white/90 font-medium'>
+                  <td className='px-4 py-3 text-paragraph-size text-paragraph font-paragraph'>
                     {row.filename}
                   </td>
-                  <td className='px-4 py-3 text-sm text-white/70'>
+                  <td className='px-4 py-3 text-paragraph-size text-descriptive'>
                     {row.type}
                   </td>
-                  <td className='px-4 py-3 text-sm text-white/70'>
+                  <td className='px-4 py-3 text-paragraph-size text-descriptive'>
                     {row.size}
                   </td>
-                  <td className='px-4 py-3 text-sm text-white/70'>
+                  <td className='px-4 py-3 text-paragraph-size text-descriptive'>
                     {row.modified}
                   </td>
                 </tr>

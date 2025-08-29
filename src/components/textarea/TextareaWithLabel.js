@@ -13,9 +13,9 @@ export function TextareaWithLabel({
 }) {
   return (
     <div className="w-full space-y-2">
-      <label className="block text-sm font-medium text-white/90">
+      <label className="block text-paragraph-size font-paragraph text-paragraph">
         {label}
-        {required && <span className="text-red-400 ml-1">*</span>}
+        {required && <span className="text-danger ml-1">*</span>}
       </label>
       <textarea
         value={value}
@@ -23,11 +23,11 @@ export function TextareaWithLabel({
         placeholder={placeholder}
         rows={rows}
         required={required}
-        className={`w-full px-3 py-2 text-sm bg-neutral-800 border border-white/10 rounded-md text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent hover:border-white/20 transition-colors resize-vertical ${className}`}
+        className={`w-full px-3 py-2 text-paragraph-size bg-tertiary border border-border rounded-md text-paragraph placeholder-descriptive focus:outline-none hover:border-white/30 focus:border-white/30 transition-all duration-150 resize-vertical ${className}`}
         {...props}
       />
       {helperText && (
-        <p className="text-xs text-white/50">
+        <p className="text-tips-size text-tips">
           {helperText}
         </p>
       )}

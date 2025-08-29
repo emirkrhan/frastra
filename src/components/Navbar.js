@@ -94,12 +94,50 @@ export default function Navbar() {
   const [isVersionDropdownOpen, setIsVersionDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [starCount, setStarCount] = useState(null);
   const menuRef = useRef(null);
   const versionRef = useRef(null);
   const searchRef = useRef(null);
   useOnClickOutside(menuRef, () => setIsMenuOpen(false));
   useOnClickOutside(versionRef, () => setIsVersionDropdownOpen(false));
   useOnClickOutside(searchRef, () => setIsSearchOpen(false));
+
+  // GitHub star count fetch with caching
+  useEffect(() => {
+    const CACHE_KEY = 'frastra_star_count';
+    const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
+    
+    // Check cache first
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { data, timestamp } = JSON.parse(cached);
+      if (Date.now() - timestamp < CACHE_DURATION) {
+        setStarCount(data);
+        return;
+      }
+    }
+    
+    // Fetch from API
+    fetch('https://api.github.com/repos/emirkrhan/frastra')
+      .then(res => res.json())
+      .then(data => {
+        const starCount = data.stargazers_count;
+        setStarCount(starCount);
+        // Cache the result
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          data: starCount,
+          timestamp: Date.now()
+        }));
+      })
+      .catch(err => {
+        console.error('Failed to fetch star count:', err);
+        // If fetch fails, use cached data even if expired
+        if (cached) {
+          const { data } = JSON.parse(cached);
+          setStarCount(data);
+        }
+      });
+  }, []);
 
   const setTheme = (newTheme) => {
     // In a real app, you would also apply the theme to the document
@@ -167,20 +205,23 @@ export default function Navbar() {
             <div className="relative" ref={versionRef}>
               <button
                 onClick={() => setIsVersionDropdownOpen(!isVersionDropdownOpen)}
-                className="inline-flex items-center rounded-full cursor-pointer bg-neutral-800 px-2.5 py-1 text-xs font-semibold text-white/80 hover:text-white hover:border-white/20 transition-colors"
+                className="inline-flex items-center gap-1 rounded-md cursor-pointer bg-secondary border border-border px-2.5 py-1 text-xs font-medium text-white/80 hover:text-white hover:bg-tertiary transition-colors"
               >
                 v1.1.0
+                <svg className="size-3 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
               
               <div
-                className={`transition-all duration-200 ease-out origin-top absolute left-0 mt-1.5 w-32 rounded-xl shadow-lg bg-neutral-800 ring-1 ring-white/5 focus:outline-none z-50 p-1 ${
+                className={`transition-all duration-200 ease-out origin-top absolute left-0 mt-2 w-28 rounded-lg shadow-xl bg-secondary border border-border focus:outline-none z-50 p-1 ${
                   isVersionDropdownOpen
                     ? 'opacity-100 scale-100'
                     : 'opacity-0 scale-95 pointer-events-none'
                 }`}
               >
-                <button className="group flex w-full items-center rounded-md px-2 py-1.5 text-sm text-white/80 hover:bg-white/5 hover:text-white transition-colors">
-                  <div className="mr-2 size-2 bg-green-400 rounded-full animate-pulse"></div>
+                <button className="group flex w-full items-center rounded-md px-2 py-1.5 text-xs text-white/80 hover:bg-tertiary hover:text-white transition-colors">
+                  <div className="mr-2 size-1.5 bg-success rounded-full"></div>
                   v1.1.0
                 </button>
               </div>
@@ -210,10 +251,15 @@ export default function Navbar() {
             href="https://github.com/emirkrhan/frastra"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full text-white hover:bg-neutral-800 transition-colors"
+            className="flex items-center gap-1.5 p-2 rounded-full text-white hover:bg-neutral-800 transition-colors"
           >
             <span className="sr-only">GitHub</span>
             <GitHubIcon className="size-5" />
+            {starCount !== null && (
+              <span className="text-[13px] text-white/80 font-medium">
+                {starCount}
+              </span>
+            )}
           </a>
         </div>
       </div>
