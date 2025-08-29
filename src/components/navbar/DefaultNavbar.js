@@ -20,7 +20,7 @@ export default function DefaultNavbar() {
   }
 
   return (
-    <nav className='w-full bg-neutral-900/50 border border-white/10 backdrop-blur-sm rounded-xl'>
+    <nav className='w-full bg-secondary border border-border backdrop-blur-sm rounded-xl'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16'>
           <div className='flex items-center'>
@@ -35,7 +35,7 @@ export default function DefaultNavbar() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className='text-neutral-300 hover:bg-neutral-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer'
+                    className='text-paragraph hover:bg-tertiary px-3 py-2 rounded-md text-paragraph-size font-paragraph transition-colors cursor-pointer'
                   >
                     {link.label}
                   </a>
@@ -46,19 +46,19 @@ export default function DefaultNavbar() {
           <div className='hidden md:flex items-center space-x-4'>
             <button
               onClick={toggleTheme}
-              className='p-2 rounded-full text-neutral-300 hover:bg-neutral-700 hover:text-white transition-colors cursor-pointer'
+              className='p-2 rounded-full text-white hover:bg-tertiary transition-colors cursor-pointer'
               aria-label='Toggle theme'
             >
               {isDarkMode ? <SunIcon className='h-6 w-6' /> : <MoonIcon className='h-6 w-6' />}
             </button>
-            <button className='bg-white text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer'>
+            <button className='bg-white text-black px-4 py-2 rounded-md text-paragraph-size font-paragraph hover:bg-gray-200 transition-colors cursor-pointer'>
               Get Started
             </button>
           </div>
           <div className='-mr-2 flex md:hidden'>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='inline-flex items-center justify-center p-2 rounded-md text-neutral-400 hover:text-white hover:bg-neutral-700 focus:outline-none transition-colors cursor-pointer'
+              className='inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-tertiary focus:outline-none transition-colors cursor-pointer'
               aria-controls='mobile-menu'
               aria-expanded='false'
             >
@@ -80,7 +80,7 @@ export default function DefaultNavbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className='text-neutral-300 hover:bg-neutral-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer'
+                className='text-white hover:bg-tertiary  block px-3 py-2 rounded-md text-paragraph-size font-paragraph transition-colors cursor-pointer'
               >
                 {link.label}
               </a>
@@ -90,12 +90,12 @@ export default function DefaultNavbar() {
              <div className='flex items-center justify-between px-4'>
                 <button
                 onClick={toggleTheme}
-                className='p-2 rounded-full text-neutral-300 hover:bg-neutral-700 hover:text-white transition-colors cursor-pointer'
+                className='p-2 rounded-full text-white hover:bg-tertiary transition-colors cursor-pointer'
                 aria-label='Toggle theme'
                 >
                 {isDarkMode ? <SunIcon className='h-6 w-6' /> : <MoonIcon className='h-6 w-6' />}
                 </button>
-                <button className='bg-white text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer'>
+                <button className='bg-white text-black px-4 py-2 rounded-md text-paragraph-size font-paragraph hover:bg-white/90 transition-colors cursor-pointer'>
                     Get Started
                 </button>
              </div>

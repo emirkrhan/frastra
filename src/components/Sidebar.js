@@ -77,7 +77,7 @@ export const menuItems = [
         label: "Skeleton",
         path: "/components/skeleton",
       },
-      { id: 17, label: "Loader", path: "/components/spinner" },
+      { id: 17, label: "Spiiner", path: "/components/spinner" },
       { id: 18, label: "Switch", path: "/components/switch" },
         { id: 25, label: "Table", path: "/components/table" },
       { id: 19, label: "Tabs", path: "/components/tabs" },

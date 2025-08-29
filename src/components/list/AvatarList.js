@@ -55,25 +55,25 @@ export default function AvatarList({ items }) {
         {listItems.map((item) => (
           <li 
             key={item.id}
-            className='flex items-center gap-2 px-3 py-2 rounded-md hover:bg-white/5 transition-colors'
+            className='flex items-center gap-2 px-3 py-2 rounded-md hover:bg-secondary transition-colors'
           >
             <div className='relative flex-shrink-0'>
-              <div className={'w-9 h-9 rounded-full bg-neutral-800 border border-white/10 flex items-center justify-center'}>
-                <span className='text-sm font-semibold text-white'>
+              <div className={'w-9 h-9 rounded-full bg-tertiary border border-border flex items-center justify-center'}>
+                <span className='text-title text-title-size font-title'>
                   {item.avatar}
                 </span>
               </div>
-              <div className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 ${getStatusColor(item.status)} rounded-full border-2 border-black`} />
+              <div className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 ${getStatusColor(item.status)} rounded-full border-2 border-border`} />
             </div>
             <div className='flex-1 min-w-0'>
-              <p className='text-sm font-medium text-white truncate'>
+              <p className='text-paragraph font-paragraph text-paragraph-size truncate'>
                 {item.name}
               </p>
-              <p className='text-xs text-white/60 truncate'>
+              <p className='text-tips-size text-tips truncate'>
                 {item.role}
               </p>
             </div>
-            <button className='flex-shrink-0 p-1 text-white/50 hover:text-white hover:bg-white/10 rounded transition-colors cursor-pointer'>
+            <button className='flex-shrink-0 p-1 hover:bg-tertiary rounded transition-colors cursor-pointer'>
               <EllipsisVerticalIcon className='h-4 w-4' />
             </button>
           </li>

@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Check, X } from 'lucide-react'
+import { ChevronDownIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/solid'
 
 export function Select({ 
   options = [], 
@@ -18,7 +18,12 @@ export function Select({
   const [searchQuery, setSearchQuery] = useState('')
   const selectRef = useRef(null)
 
-  // Close dropdown when clicking outside
+  const safeValue = useMemo(() => (
+    multiple ? (value || []) : value
+  ), [multiple, value])
+
+  const listboxId = "select-listbox" 
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (selectRef.current && !selectRef.current.contains(event.target)) {
@@ -31,50 +36,58 @@ export function Select({
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // Filter options based on search query
-  const filteredOptions = searchable 
-    ? options.filter(option => 
-        option.label.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : options
+  const handleBlur = useCallback((event) => {
+    if (selectRef.current && !selectRef.current.contains(event.relatedTarget)) {
+      setIsOpen(false)
+      setSearchQuery('')
+    }
+  }, [])
 
-  const handleOptionClick = (option) => {
+  const filteredOptions = useMemo(() => {
+    return searchable 
+      ? options.filter(option => 
+          option.label.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      : options
+  }, [options, searchQuery, searchable])
+
+  const handleOptionClick = useCallback((option) => {
     if (multiple) {
-      const isSelected = Array.isArray(value) && value.some(v => v.value === option.value)
+      const isSelected = Array.isArray(safeValue) && safeValue.some(v => v.value === option.value)
       const newValue = isSelected
-        ? value.filter(v => v.value !== option.value)
-        : [...(value || []), option]
+        ? safeValue.filter(v => v.value !== option.value)
+        : [...safeValue, option]
       onChange(newValue)
     } else {
       onChange(option)
       setIsOpen(false)
       setSearchQuery('')
     }
-  }
+  }, [multiple, safeValue, onChange])
 
-  const handleRemoveItem = (removedOption) => {
-    if (multiple && Array.isArray(value)) {
-      const newValue = value.filter(v => v.value !== removedOption.value)
+  const handleRemoveItem = useCallback((removedOption) => {
+    if (multiple && Array.isArray(safeValue)) {
+      const newValue = safeValue.filter(v => v.value !== removedOption.value)
       onChange(newValue)
     }
-  }
+  }, [multiple, safeValue, onChange])
 
-  const isSelected = (option) => {
+  const isSelected = useCallback((option) => {
     if (multiple) {
-      return Array.isArray(value) && value.some(v => v.value === option.value)
+      return Array.isArray(safeValue) && safeValue.some(v => v.value === option.value)
     }
-    return value && value.value === option.value
-  }
+    return safeValue && safeValue.value === option.value
+  }, [multiple, safeValue])
 
-  const getDisplayContent = () => {
+  const getDisplayContent = useCallback(() => {
     if (multiple) {
-      if (!value || value.length === 0) {
-        return <span className="text-neutral-400">{placeholder}</span>
+      if (!safeValue || safeValue.length === 0) {
+        return <span className="text-descriptive">{placeholder}</span>
       }
       
       return (
         <div className="flex flex-wrap gap-1">
-          {value.map((item) => (
+          {safeValue.map((item) => (
             <span 
               key={item.value} 
               className="inline-flex items-center gap-1 bg-white/5 text-white text-xs px-1.5 py-0.5 rounded"
@@ -87,7 +100,7 @@ export function Select({
                 }}
                 className="hover:bg-white/10 rounded p-0.5 cursor-pointer"
               >
-                <X className="w-2.5 h-2.5" />
+                <XMarkIcon className="w-3 h-3" />
               </div>
             </span>
           ))}
@@ -95,21 +108,29 @@ export function Select({
       )
     }
     return (
-      <span className={value ? 'text-white' : 'text-neutral-400'}>
-        {value ? value.label : placeholder}
+      <span className={safeValue ? 'text-paragraph' : 'text-descriptive'}>
+        {safeValue ? safeValue.label : placeholder}
       </span>
     )
-  }
+  }, [multiple, safeValue, placeholder, handleRemoveItem])
 
   return (
-    <div ref={selectRef} className={`relative w-full max-w-md ${className}`}>
-      {/* Trigger */}
+    <div 
+      ref={selectRef} 
+      className={`relative w-full max-w-md ${className}`} 
+      onBlur={handleBlur}
+    >
       <button
         type="button"
+        role="combobox"
+        aria-expanded={isOpen}
+        aria-controls={listboxId}  
+        aria-disabled={disabled}
+        aria-haspopup="listbox"
         onClick={() => !disabled && setIsOpen(!isOpen)}
         className={`
-          w-full px-3 py-2 bg-neutral-800 border border-white/10 rounded-md
-          flex items-center justify-between text-left text-sm min-h-[36px]
+          w-full px-3 py-2 bg-tertiary border border-border rounded-md
+          flex items-center justify-between text-left text-descriptive-size min-h-[36px]
           transition-all duration-150
           ${disabled 
             ? 'opacity-50 cursor-not-allowed' 
@@ -125,37 +146,36 @@ export function Select({
           transition={{ duration: 0.15 }}
           className="ml-2 flex-shrink-0"
         >
-          <ChevronDown className="w-4 h-4 text-neutral-400" />
+          <ChevronDownIcon className="w-4 h-4 text-descriptive" />
         </motion.div>
       </button>
 
-      {/* Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id={listboxId}      
+            role="listbox"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.1 }}
-            className="absolute z-50 w-full mt-1 bg-neutral-800 border border-white/10 rounded-md shadow-lg max-h-60 overflow-hidden"
+            className="absolute z-50 w-full mt-1 bg-tertiary border border-border rounded-md shadow-lg max-h-60 overflow-hidden"
           >
-            {/* Search Input */}
             {searchable && (
-              <div className="p-2 border-b border-white/10">
+              <div className="p-2 border-b border-border">
                 <input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-3 py-1.5 bg-neutral-800 border border-white/10 rounded text-sm text-white placeholder-neutral-400 focus:outline-none focus:border-white/30 transition-all duration-150"
+                  className="w-full px-3 py-1.5 bg-tertiary border border-border rounded text-paragraph text-paragraph-size placeholder-descriptive focus:outline-none focus:border-white/30 transition-all duration-150"
                 />
               </div>
             )}
 
-            {/* Options */}
             <div className="max-h-48 overflow-y-auto">
               {filteredOptions.length === 0 ? (
-                <div className="px-3 py-2 text-neutral-400 text-sm">
+                <div className="px-3 py-2 text-descriptive text-descriptive-size">
                   {searchable && searchQuery ? 'No results found' : 'No options available'}
                 </div>
               ) : (
@@ -163,19 +183,21 @@ export function Select({
                   <button
                     key={option.value}
                     type="button"
+                    role="option"
+                    aria-selected={isSelected(option)}
                     onClick={() => handleOptionClick(option)}
                     className={`
-                      w-full px-3 py-1.5 text-left flex items-center justify-between text-sm
+                      w-full px-3 py-1.5 text-left flex items-center justify-between text-descriptive-size
                       transition-colors duration-100
                       ${isSelected(option) 
                         ? 'bg-white/5 text-white' 
-                        : 'text-white/70 hover:bg-white/5 hover:text-white'
+                        : 'text-descriptive hover:bg-white/5 hover:text-white'
                       }
                     `}
                   >
                     <span>{option.label}</span>
                     {isSelected(option) && (
-                      <Check className="w-3 h-3 text-white" />
+                      <CheckIcon className="w-4 h-4 text-white" />
                     )}
                   </button>
                 ))
@@ -186,4 +208,4 @@ export function Select({
       </AnimatePresence>
     </div>
   )
-} 
+}

@@ -20,10 +20,9 @@ import InteractiveAreaChart from "@/components/chart/InteractiveAreaChart";
 import { DefaultAccordion } from "@/components/accordion/DefaultAccordion";
 import { DefaultTabs } from "@/components/tabs/DefaultTabs";
 import { DefaultSelect } from "@/components/select/DefaultSelect";
-import DeleteProjectCard from "@/components/card/DeleteProjectCard";
 import FullPagination from "@/components/pagination/FullPagination";
-import DefaultSpinner from "@/components/spinner/DefaultSpinner";
-import SimpleSkeleton from "@/components/skeleton/SimpleSkeleton";
+import SimpleSkeleton from "@/components/skeleton/Skeleton";
+import Spinner from "@/components/spinner/Spinner";
 
 function DetailedProjectsTable() {
   const rows = [
@@ -416,7 +415,7 @@ export default function Home() {
                 <div className="mb-0.5 text-sm font-medium text-white/80">Loader</div>
                 <p className="text-[12px] text-white/60">Minimal spinner for async actions.</p>
               </div>
-              <DefaultSpinner />
+              <Spinner />
             </div>
             <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
               <div className="mb-1 text-sm font-medium text-white/80">Skeleton</div>
@@ -432,7 +431,6 @@ export default function Home() {
             <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
               <div className="mb-1 text-sm font-medium text-white/80">Toast</div>
               <p className="mb-2 text-[12px] text-white/60">Actions that can have significant impact on your data.</p>
-              <DeleteProjectCard inline projectName="Cosmo UI" />
             </div>
             <div className="rounded-xl border border-white/10 bg-white/5 px-4 pt-3 pb-2">
               <div className="mb-1 text-sm font-medium text-white/80">Pagination</div>

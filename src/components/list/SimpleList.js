@@ -18,16 +18,16 @@ export default function SimpleList({ items }) {
         {listItems.map((item) => (
           <li 
             key={item.id}
-            className='flex items-center gap-3 px-3 py-2 rounded-md hover:bg-white/5 transition-colors cursor-pointer'
+            className='flex items-center gap-3 px-3 py-2 rounded-md hover:bg-secondary transition-colors cursor-pointer'
           >
             <div className='flex-shrink-0'>
-              <UserIcon className='h-5 w-5 text-white/60' />
+              <UserIcon className='h-5 w-5 text-descriptive' />
             </div>
             <div className='flex-1 min-w-0'>
-              <p className='text-sm font-medium text-white truncate'>
+              <p className='text-paragraph font-paragraph text-paragraph-size truncate'>
                 {item.name}
               </p>
-              <p className='text-xs text-white/60 truncate'>
+              <p className='text-tips-size text-tips truncate'>
                 {item.email}
               </p>
             </div>

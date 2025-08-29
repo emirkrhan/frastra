@@ -62,22 +62,22 @@ export default function ActionList({ items }) {
         {listItems.map((item) => (
           <li 
             key={item.id}
-            className='group flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-white/5 transition-colors cursor-pointer'
+            className='group flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors cursor-pointer'
           >
             <div className='flex-shrink-0'>
               <item.icon className={`h-5 w-5 ${item.color}`} />
             </div>
             <div className='flex-1 min-w-0'>
-              <p className='text-sm font-medium text-white truncate'>
+              <p className='text-paragraph font-paragraph text-paragraph-size truncate'>
                 {item.title}
               </p>
-              <p className='text-xs text-white/60 truncate'>
+              <p className='text-tips-size text-tips truncate'>
                 {item.description}
               </p>
             </div>
             {item.action === 'navigate' && (
               <div className='flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity'>
-                <ChevronRightIcon className='h-4 w-4 text-white/50' />
+                <ChevronRightIcon className='h-4 w-4 text-descriptive' />
               </div>
             )}
           </li>

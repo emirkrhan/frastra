@@ -81,9 +81,9 @@ export default function Pagination({
   let lastPage = paginationRange[paginationRange.length - 1]
 
   const buttonClasses =
-    'flex items-center justify-center h-9 w-9 rounded-md text-sm transition-colors cursor-pointer'
-  const activeClasses = 'bg-white text-black font-medium'
-  const inactiveClasses = 'text-white/60 hover:bg-white/10 hover:text-white'
+    'flex items-center justify-center h-9 w-9 rounded-md text-paragraph-size transition-colors cursor-pointer'
+  const activeClasses = 'bg-white text-black font-paragraph'
+  const inactiveClasses = 'text-descriptive hover:bg-tertiary hover:text-white'
   const disabledClasses = 'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-white/60'
 
   return (
@@ -104,7 +104,7 @@ export default function Pagination({
             return (
               <li
                 key={index}
-                className='flex items-center justify-center h-9 w-9 text-white/60'
+                className='flex items-center justify-center h-9 w-9 text-descriptive'
               >
                 &#8230;
               </li>

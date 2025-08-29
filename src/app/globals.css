@@ -390,6 +390,11 @@
   --color-border: #3c3c3c;
   --color-danger: #fb2c36;
   --color-success: #00c951;
+  --color-info: #2b7fff;
+
+  --color-headline: #ffffff;
+  --text-headline-size: 18px;
+  --font-weight-headline: 700;
 
   /* Typography */
   --color-title: #ffffff;

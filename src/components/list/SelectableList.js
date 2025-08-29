@@ -34,12 +34,12 @@ export default function SelectableList({ items, onSelectionChange }) {
   return (
     <div className='w-full max-w-md'>
       <div className='flex items-center justify-between mb-3 px-3'>
-        <span className='text-sm text-white/70'>
+        <span className='text-descriptive-size text-descriptive'>
           {selectedItems.length} of {listItems.length} selected
         </span>
         <button
           onClick={handleSelectAll}
-          className='text-xs text-blue-400 hover:text-blue-300 transition-colors'
+          className='text-tips-size text-info/80 hover:text-info transition-colors cursor-pointer'
         >
           {selectedItems.length === listItems.length ? 'Deselect All' : 'Select All'}
         </button>
@@ -55,15 +55,15 @@ export default function SelectableList({ items, onSelectionChange }) {
               onClick={() => handleToggleItem(item.id)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-md transition-colors cursor-pointer ${
                 isSelected 
-                  ? 'bg-blue-500/10 border border-blue-500/20' 
-                  : 'hover:bg-white/5 border border-transparent'
+                  ? 'bg-info/10 border border-info/20' 
+                  : 'hover:bg-secondary border border-transparent'
               }`}
             >
               <div className='flex-shrink-0'>
                 <div 
                   className={`w-4 h-4 rounded border-2 flex items-center justify-center transition-colors ${
                     isSelected 
-                      ? 'bg-blue-500 border-blue-500' 
+                      ? 'bg-info border-info' 
                       : 'border-white/30 hover:border-white/50'
                   }`}
                 >
@@ -73,12 +73,10 @@ export default function SelectableList({ items, onSelectionChange }) {
                 </div>
               </div>
               <div className='flex-1 min-w-0'>
-                <p className={`text-sm font-medium truncate transition-colors ${
-                  isSelected ? 'text-white' : 'text-white/90'
-                }`}>
+                <p className="text-paragraph font-paragraph text-paragraph-size truncate transition-colors">
                   {item.title}
                 </p>
-                <p className='text-xs text-white/60 truncate'>
+                <p className='text-tips-size text-tips truncate'>
                   {item.description}
                 </p>
               </div>

@@ -16,10 +16,10 @@ export default function RadioGroup({ options, value, onChange, name }) {
         return (
           <label
             key={option.value}
-            className={`flex items-start rounded-md p-2 transition-colors ${
+            className={`flex items-center rounded-md p-2 transition-colors ${
               isDisabled
                 ? 'cursor-not-allowed opacity-50'
-                : 'cursor-pointer hover:bg-white/10'
+                : 'cursor-pointer hover:bg-tertiary'
             }`}
           >
             <input
@@ -32,9 +32,7 @@ export default function RadioGroup({ options, value, onChange, name }) {
               className='sr-only'
             />
             <span
-              className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border transition-colors ${
-                isSelected ? 'border-white' : 'border-gray-500'
-              }`}
+              className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border transition-colors border-white/50"
             >
               {isSelected && (
                 <motion.span
@@ -45,10 +43,10 @@ export default function RadioGroup({ options, value, onChange, name }) {
                 />
               )}
             </span>
-            <div className='ml-2 text-sm'>
-              <span className='font-medium text-white'>{option.label}</span>
+            <div className='ml-2'>
+              <span className='text-paragraph text-paragraph-size font-paragraph'>{option.label}</span>
               {option.description && (
-                <p className='text-gray-400'>{option.description}</p>
+                <p className='text-tips text-tips-size font-tips'>{option.description}</p>
               )}
             </div>
           </label>
